@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/StudyWithMe/static/css/main.d6b886b0.css",
+    "main.js": "/StudyWithMe/static/js/main.8f4d0105.js",
+    "static/js/488.0178837f.chunk.js": "/StudyWithMe/static/js/488.0178837f.chunk.js",
+    "index.html": "/StudyWithMe/index.html",
+    "main.d6b886b0.css.map": "/StudyWithMe/static/css/main.d6b886b0.css.map",
+    "main.8f4d0105.js.map": "/StudyWithMe/static/js/main.8f4d0105.js.map",
+    "488.0178837f.chunk.js.map": "/StudyWithMe/static/js/488.0178837f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d6b886b0.css",
+    "static/js/main.8f4d0105.js"
+  ]
+}
