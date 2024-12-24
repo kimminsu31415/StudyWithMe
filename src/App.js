@@ -68,6 +68,12 @@ function App() {
     }
   };
 
+  const handleDelete = (indexToDelete) => {
+    setVideoSources((prevSources) =>
+      prevSources.filter((_, index) => index !== indexToDelete),
+    );
+  };
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-black p-4">
       <div className="w-screen bg-black">
@@ -76,10 +82,10 @@ function App() {
           {videoSources.map((source, index) => (
             <div
               key={index}
-              className="relative rounded border border-gray-700 bg-black text-white shadow-lg"
+              className="group relative rounded border border-gray-700 bg-black text-white shadow-lg"
             >
               {source.type === "video" ? (
-                <div className="aspect-w-16 aspect-h-9">
+                <div className="aspect-h-9 aspect-w-16">
                   <iframe
                     src={`https://www.youtube.com/embed/${source.id}`}
                     title={`YouTube video player ${index}`}
@@ -90,7 +96,7 @@ function App() {
                   ></iframe>
                 </div>
               ) : (
-                <div className="aspect-w-16 aspect-h-9">
+                <div className="aspect-h-9 aspect-w-16">
                   <video
                     autoPlay
                     playsInline
@@ -110,6 +116,13 @@ function App() {
                   ? `YouTube ${index + 1}`
                   : `카메라 ${index + 1}`}
               </div>
+              <button
+                onClick={() => handleDelete(index)}
+                className="absolute right-2 top-2 z-20 flex h-6 w-6 cursor-pointer items-center justify-center rounded-full bg-red-600 text-white opacity-0 transition-opacity duration-200 hover:bg-red-700 focus:outline-none group-hover:opacity-100"
+                aria-label={`Delete ${source.type === "video" ? "YouTube" : "Camera"} ${index + 1}`}
+              >
+                &times;
+              </button>
             </div>
           ))}
         </div>
