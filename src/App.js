@@ -106,7 +106,7 @@ function App() {
                         video.srcObject = source.stream;
                       }
                     }}
-                    className="h-full w-full rounded"
+                    className="h-full w-full rounded object-cover"
                   ></video>
                 </div>
               )}
