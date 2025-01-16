@@ -1,9 +1,18 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import axios from "axios";
 
 function App() {
   const [videoUrl, setVideoUrl] = useState(""); // 입력된 URL
   const [videoSources, setVideoSources] = useState([]); // 동영상 및 카메라 소스
   const cameraStreamRef = useRef(null); // 카메라 스트림
+
+  async function fetchTodos() {
+    const res = await axios.get("http://localhost:3000/todos");
+    console.log(res.data); // []
+  }
+  useEffect(() => {
+    fetchTodos();
+  }, []);
 
   const extractVideoId = (url) => {
     const regex =
@@ -155,6 +164,7 @@ function App() {
           >
             Share Camera
           </button>
+          <button onClick={fetchTodos}>Load Todos</button>
           <button
             onClick={handleStopCamera}
             className="mx-2 rounded bg-gray-700 px-4 py-2 hover:bg-gray-600"
